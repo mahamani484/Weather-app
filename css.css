@@ -21,6 +21,7 @@ background-image: linear-gradient(45deg, #21D4FD 0%, #B721FF 100%);
 	display: flex;
 	flex-direction: column;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+	transition: 1s;
 }
 .inp{
 	height: 46px;
@@ -28,6 +29,7 @@ background-image: linear-gradient(45deg, #21D4FD 0%, #B721FF 100%);
 	border: none;
 	border-radius: 30px;
 	padding: 20px;
+	transition: 1s;
 
 }
 
@@ -39,6 +41,7 @@ background-image: linear-gradient(45deg, #21D4FD 0%, #B721FF 100%);
 	flex-direction: row;
 	padding: 7px;
 	margin: 0px 0%;
+	transition: 1s;
 }
 .city{
 	padding: 22px 22px;
@@ -52,3 +55,103 @@ background-image: linear-gradient(45deg, #21D4FD 0%, #B721FF 100%);
 	color: aliceblue;
     margin: 5px;
 }
+
+.details{
+	display: flex;
+	flex-direction: row;
+}
+.humidity{
+	margin-right:50px;
+	color: white;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.windspeed{
+	color: white;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+
+.loader {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	position: relative;
+	animation: rotate 1s linear infinite;
+	margin-top: 20px;
+  }
+  .loader::before , .loader::after {
+	content: "";
+	box-sizing: border-box;
+	position: absolute;
+	inset: 0px;
+	border-radius: 50%;
+	border: 5px solid #FFF;
+	animation: prixClipFix 2s linear infinite ;
+  }
+  .loader::after{
+	inset: 8px;
+	transform: rotate3d(90, 90, 0, 180deg );
+	border-color: #001eff;
+  }
+
+  @keyframes rotate {
+	0%   {transform: rotate(0deg)}
+	100%   {transform: rotate(360deg)}
+  }
+
+  @keyframes prixClipFix {
+	  0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+	  50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+	  75%, 100%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+  }
+
+
+
+
+
+
+
+
+  @media screen and (max-width: 600px){
+	body{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.card{
+		width:70%;
+		padding: 30px;
+		height: 60vh;
+	}
+	.inp{
+		width: inherit;
+	}
+	
+	.weather{
+		display: flex;
+		flex-direction: column;
+		height: 34vh;
+		justify-content: unset;
+	}
+	.city{
+		padding: 0%;
+	}
+	.icon{
+		width: 103px;
+    height: 111px;
+    align-self: center;
+	}
+	.details{
+		flex-direction: column;
+	}
+
+	.humidity{
+		margin: 3px;
+	}
+	.windspeed{
+		margin: 3px;
+	}
+
+  }
